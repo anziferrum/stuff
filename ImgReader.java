@@ -50,19 +50,22 @@ public class ImgReader {
 			}
 		}
 		
+		int i = 0;
+
 		for (Map.Entry<Integer, Integer> e : colors.entrySet()) {
 			int clr = e.getKey();
 			int r = (clr & 0x00ff0000) >> 16;
 			int g = (clr & 0x0000ff00) >> 8;
 			int b = clr & 0x000000ff;
+			i++;
 
-			System.out.println("[" + r + ", " + g + ", " + b + "]: " + e.getValue() + " (" + clr + ")");
+			System.out.println(i + ": [" + r + ", " + g + ", " + b + "]: " + e.getValue() + " (" + clr + ")");
 		}
 
 		if (showCoords) {
 			System.out.println("Coords:");
 
-			for (int i = 0; i < size; i++) {
+			for (i = 0; i < size; i++) {
 				System.out.println(xCoords[i] + ", " + yCoords[i]);
 			}
 		}
